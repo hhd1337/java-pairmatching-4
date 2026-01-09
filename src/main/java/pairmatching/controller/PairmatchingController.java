@@ -1,6 +1,8 @@
 package pairmatching.controller;
 
+import java.util.List;
 import pairmatching.domain.Menu;
+import pairmatching.io.FileReader;
 import pairmatching.view.OutputView;
 
 public class PairmatchingController {
@@ -14,6 +16,10 @@ public class PairmatchingController {
     }
 
     public void process() {
+        FileReader fileReader = new FileReader();
+        List<String> backs = fileReader.readBackEndCrews();
+        List<String> fronts = fileReader.readFrontEndCrews();
+
         Menu menu;
         do {
             outputView.printHelloAndMenu();

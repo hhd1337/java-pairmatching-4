@@ -11,8 +11,8 @@
 
 ### 파일을 읽어 크루들을 로드하는 기능
 
-- [ ] src/main/resources/backend-crew.md 를 읽어 백엔드 크루목록을 초기화한다.
-- [ ] src/main/resources/frontend-crew.md 를 읽어 프론트엔드 크루목록을 초기화한다.
+- [x] src/main/resources/backend-crew.md 를 읽어 백엔드 크루목록을 초기화한다.
+- [x] src/main/resources/frontend-crew.md 를 읽어 프론트엔드 크루목록을 초기화한다.
 
 ### 페어 매칭 기능
 

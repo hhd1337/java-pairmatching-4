@@ -2,6 +2,7 @@ package pairmatching.controller;
 
 import java.util.List;
 import pairmatching.domain.Menu;
+import pairmatching.dto.CourseLevelMissionDto;
 import pairmatching.io.FileReader;
 import pairmatching.view.OutputView;
 
@@ -42,6 +43,10 @@ public class PairmatchingController {
 
     private void runPairMatch() {
         outputView.printCourseLevelMission();
+        outputView.printCourseLevelMissionInputPrompt();
+        CourseLevelMissionDto dto = inputHandler.inputCourseLevelMission();
+
+
     }
 
 }

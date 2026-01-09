@@ -30,7 +30,7 @@ public class PairmatchingController {
 
     private void run(Menu menu) {
         if (menu == Menu.PAIR_MATCH) {
-            // runPairMatch();
+            runPairMatch();
         }
         if (menu == Menu.PAIR_CHECK) {
             // runPairCheck();
@@ -38,6 +38,10 @@ public class PairmatchingController {
         if (menu == Menu.PAIR_RESET) {
             // runPairReset();
         }
+    }
+
+    private void runPairMatch() {
+        outputView.printCourseLevelMission();
     }
 
 }

@@ -49,4 +49,8 @@ public class OutputView {
         }
     }
 
+    public void printResetDoneMessage() {
+        System.out.println("초기화 되었습니다.");
+    }
+
 }

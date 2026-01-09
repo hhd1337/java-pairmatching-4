@@ -42,8 +42,13 @@ public class PairmatchingController {
             runPairCheck(pairHistory);
         }
         if (menu == Menu.PAIR_RESET) {
-            // runPairReset();
+            runPairReset(pairHistory);
         }
+    }
+
+    private void runPairReset(PairHistory pairHistory) {
+        pairHistory.resetPairHistoryList();
+        outputView.printResetDoneMessage();
     }
 
     private void runPairCheck(PairHistory pairHistory) {

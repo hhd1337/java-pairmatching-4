@@ -79,7 +79,6 @@ public class PairHistory {
         return tempPairList;
     }
 
-    // 과정/레벨/미션을 받아 해당 페어매칭 리스트를 반환하는 메소드
     public List<Pair> findPairMatchingListByCourseLevelMission(CourseLevelMissionDto dto) {
         return pairHistoryList.stream()
                 .filter(pair -> pair.getCourse().equals(dto.getCourse()))
@@ -88,5 +87,7 @@ public class PairHistory {
                 .collect(Collectors.toList());
     }
 
-    // pairHistoryList 초기화하는 메소드
+    public void resetPairHistoryList() {
+        pairHistoryList.clear();
+    }
 }

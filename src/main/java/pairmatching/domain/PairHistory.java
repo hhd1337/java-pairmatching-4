@@ -3,6 +3,7 @@ package pairmatching.domain;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import pairmatching.dto.CourseLevelMissionDto;
 
 public class PairHistory {
@@ -25,9 +26,6 @@ public class PairHistory {
         return matchPairsWithOddCrews(crewList, dto);
     }
 
-    //    - 조건) 한번 매칭 시도가 실패할 때 마다 안내 문구를 출력 후 재매칭을 진행한다.
-    //    - 조건) 안내문구에서 아니오를 선택할 경우 코스, 레벨, 미션을 다시 선택한다.
-    //    - 조건) 3회 시도까지 매칭이 되지 않거나 매칭을 할 수 있는 경우의 수가 없으면 에러 메시지를 출력한다.
     public List<Pair> matchPairsWithEvenCrews(List<String> crewList, CourseLevelMissionDto dto) {
         List<String> shuffledCrewList = Randoms.shuffle(crewList);
         List<Pair> tempPairList = new ArrayList<>();
@@ -82,6 +80,13 @@ public class PairHistory {
     }
 
     // 과정/레벨/미션을 받아 해당 페어매칭 리스트를 반환하는 메소드
+    public List<Pair> findPairMatchingListByCourseLevelMission(CourseLevelMissionDto dto) {
+        return pairHistoryList.stream()
+                .filter(pair -> pair.getCourse().equals(dto.getCourse()))
+                .filter(pair -> pair.getLevel().equals(dto.getLevel()))
+                .filter(pair -> pair.getLevel().equals(dto.getLevel()))
+                .collect(Collectors.toList());
+    }
 
     // pairHistoryList 초기화하는 메소드
 }

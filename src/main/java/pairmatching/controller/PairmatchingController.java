@@ -39,18 +39,19 @@ public class PairmatchingController {
             runPairMatch(backCrews, frontCrews, pairHistory);
         }
         if (menu == Menu.PAIR_CHECK) {
-            runPairCheck();
+            runPairCheck(pairHistory);
         }
         if (menu == Menu.PAIR_RESET) {
             // runPairReset();
         }
     }
 
-    private void runPairCheck() {
+    private void runPairCheck(PairHistory pairHistory) {
         outputView.printCourseLevelMission();
         outputView.printCourseLevelMissionInputPrompt();
         CourseLevelMissionDto dto = inputHandler.inputCourseLevelMission();
-
+        List<Pair> pairList = pairHistory.findPairMatchingListByCourseLevelMission(dto);
+        outputView.printPairMatchResult(pairList);
     }
 
     private void runPairMatch(List<String> backCrews, List<String> frontCrews, PairHistory pairHistory) {

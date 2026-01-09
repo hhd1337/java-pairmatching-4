@@ -48,6 +48,9 @@ public class PairmatchingController {
 
     private void runPairCheck() {
         outputView.printCourseLevelMission();
+        outputView.printCourseLevelMissionInputPrompt();
+        CourseLevelMissionDto dto = inputHandler.inputCourseLevelMission();
+
     }
 
     private void runPairMatch(List<String> backCrews, List<String> frontCrews, PairHistory pairHistory) {

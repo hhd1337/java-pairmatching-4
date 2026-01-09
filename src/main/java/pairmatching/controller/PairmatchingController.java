@@ -52,6 +52,9 @@ public class PairmatchingController {
         CourseLevelMissionDto dto = inputHandler.inputCourseLevelMission();
 
         List<Pair> pairsInThisMission = matchPairsThreeTimes(backCrews, frontCrews, pairHistory, dto);
+
+        outputView.printPairMatchResult(pairsInThisMission);
+
     }
 
     private List<Pair> matchPairsThreeTimes(List<String> backCrews, List<String> frontCrews, PairHistory pairHistory,

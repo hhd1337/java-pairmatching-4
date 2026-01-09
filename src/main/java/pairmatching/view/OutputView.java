@@ -1,5 +1,7 @@
 package pairmatching.view;
 
+import java.util.List;
+import pairmatching.domain.Pair;
 import pairmatching.util.ErrorMessage;
 
 public class OutputView {
@@ -30,6 +32,21 @@ public class OutputView {
     public void printCourseLevelMissionInputPrompt() {
         System.out.println("과정, 레벨, 미션을 선택하세요.");
         System.out.println("ex) 백엔드, 레벨1, 자동차경주");
+    }
+
+    public void printPairMatchResult(List<Pair> pairs) {
+        System.out.println("페어 매칭 결과입니다.");
+        for (Pair pair : pairs) {
+            System.out.print(pair.getCrew1Name());
+            System.out.print(" : ");
+            if (pair.crew3Exists()) {
+                System.out.print(pair.getCrew2Name());
+                System.out.print(" : ");
+                System.out.println(pair.getCrew3Name());
+                continue;
+            }
+            System.out.println(pair.getCrew2Name());
+        }
     }
 
 }

@@ -59,4 +59,8 @@ public class Pair {
     public Mission getMission() {
         return mission;
     }
+
+    public boolean crew3Exists() {
+        return !(this.crew3Name == null);
+    }
 }

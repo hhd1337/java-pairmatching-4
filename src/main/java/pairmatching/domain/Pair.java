@@ -1,5 +1,7 @@
 package pairmatching.domain;
 
+import java.util.List;
+
 public class Pair {
     private String crew1Name;
     private String crew2Name;
@@ -27,6 +29,11 @@ public class Pair {
         this.course = course;
         this.level = level;
         this.mission = mission;
+    }
+
+    public boolean encludesCrews(String crew1Name, String crew2Name) {
+        List<String> crewsInPair = List.of(this.crew1Name, this.crew2Name, this.crew3Name);
+        return crewsInPair.contains(crew1Name) && crewsInPair.contains(crew2Name);
     }
 
     public String getCrew1Name() {

@@ -83,8 +83,24 @@ public class PairHistory {
         return pairHistoryList.stream()
                 .filter(pair -> pair.getCourse().equals(dto.getCourse()))
                 .filter(pair -> pair.getLevel().equals(dto.getLevel()))
-                .filter(pair -> pair.getLevel().equals(dto.getLevel()))
+                .filter(pair -> pair.getMission().equals(dto.getMission()))
                 .collect(Collectors.toList());
+    }
+
+    public Boolean isPairMatchingListExists(CourseLevelMissionDto dto) {
+        return pairHistoryList.stream()
+                .anyMatch(pair -> pair.getCourse().equals(dto.getCourse()) &&
+                        pair.getLevel().equals(dto.getLevel()) &&
+                        pair.getMission().equals(dto.getMission()));
+    }
+
+    public void removePairMatchingListByCourseLevelMission(CourseLevelMissionDto dto) {
+        pairHistoryList = pairHistoryList.stream()
+                .filter(pair -> !pair.getCourse().equals(dto.getCourse()) &&
+                        !pair.getLevel().equals(dto.getLevel()) &&
+                        !pair.getMission().equals(dto.getMission()))
+                .collect(Collectors.toList());
+
     }
 
     public void resetPairHistoryList() {

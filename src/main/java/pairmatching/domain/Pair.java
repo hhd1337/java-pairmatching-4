@@ -32,8 +32,14 @@ public class Pair {
     }
 
     public boolean encludesCrews(String crew1Name, String crew2Name) {
-        List<String> crewsInPair = List.of(this.crew1Name, this.crew2Name, this.crew3Name);
+        List<String> crewsInPair;
+        if (this.crew3Name != null) {
+            crewsInPair = List.of(this.crew1Name, this.crew2Name, this.crew3Name);
+            return crewsInPair.contains(crew1Name) && crewsInPair.contains(crew2Name);
+        }
+        crewsInPair = List.of(this.crew1Name, this.crew2Name);
         return crewsInPair.contains(crew1Name) && crewsInPair.contains(crew2Name);
+
     }
 
     public String getCrew1Name() {

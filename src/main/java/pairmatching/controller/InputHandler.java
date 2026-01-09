@@ -1,6 +1,7 @@
 package pairmatching.controller;
 
 import java.util.List;
+import pairmatching.converter.StringToBooleanConverter;
 import pairmatching.converter.StringToCourseConverter;
 import pairmatching.converter.StringToLevelConverter;
 import pairmatching.converter.StringToMenuConverter;
@@ -54,4 +55,16 @@ public class InputHandler {
                 }
         );
     }
+
+    public Boolean inputYes() {
+        StringToBooleanConverter converter = new StringToBooleanConverter();
+        return inputTemplate.execute(
+                inputView::inputYesNo,
+                value -> {
+                    value = value.trim();
+                    return converter.convert(value);
+                }
+        );
+    }
+
 }

@@ -11,4 +11,8 @@ public class InputView {
     public String inputCourseLevelMission() {
         return Console.readLine();
     }
+
+    public String inputYesNo() {
+        return Console.readLine();
+    }
 }

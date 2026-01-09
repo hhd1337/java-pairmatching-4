@@ -64,8 +64,24 @@ public class PairmatchingController {
         outputView.printCourseLevelMissionInputPrompt();
         CourseLevelMissionDto dto = inputHandler.inputCourseLevelMission();
 
+        dto = iterateWhenPairMatchingExists(dto, pairHistory);
+
         List<Pair> pairsInThisMission = matchPairsThreeTimes(backCrews, frontCrews, pairHistory, dto);
         outputView.printPairMatchResult(pairsInThisMission);
+    }
+
+    private CourseLevelMissionDto iterateWhenPairMatchingExists(CourseLevelMissionDto dto, PairHistory pairHistory) {
+        while (pairHistory.isPairMatchingListExists(dto)) {
+            outputView.printPairMatchResultExists();
+            boolean yes = inputHandler.inputYes();
+            if (yes) {
+                pairHistory.removePairMatchingListByCourseLevelMission(dto);
+                break;
+            }
+            outputView.printCourseLevelMissionInputPrompt();
+            dto = inputHandler.inputCourseLevelMission();
+        }
+        return dto;
     }
 
     private List<Pair> matchPairsThreeTimes(List<String> backCrews, List<String> frontCrews, PairHistory pairHistory,

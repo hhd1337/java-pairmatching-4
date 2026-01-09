@@ -39,11 +39,15 @@ public class PairmatchingController {
             runPairMatch(backCrews, frontCrews, pairHistory);
         }
         if (menu == Menu.PAIR_CHECK) {
-            // runPairCheck();
+            runPairCheck();
         }
         if (menu == Menu.PAIR_RESET) {
             // runPairReset();
         }
+    }
+
+    private void runPairCheck() {
+        outputView.printCourseLevelMission();
     }
 
     private void runPairMatch(List<String> backCrews, List<String> frontCrews, PairHistory pairHistory) {
@@ -52,9 +56,7 @@ public class PairmatchingController {
         CourseLevelMissionDto dto = inputHandler.inputCourseLevelMission();
 
         List<Pair> pairsInThisMission = matchPairsThreeTimes(backCrews, frontCrews, pairHistory, dto);
-
         outputView.printPairMatchResult(pairsInThisMission);
-
     }
 
     private List<Pair> matchPairsThreeTimes(List<String> backCrews, List<String> frontCrews, PairHistory pairHistory,
